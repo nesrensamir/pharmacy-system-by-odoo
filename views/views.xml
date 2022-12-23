@@ -1,0 +1,97 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="os21_pharmacy.medicines_list_view1">
+            <field name="name">os21_pharmacy list</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_tree_view"/>
+            <field name="arch" type="xml">
+                <!-- <tree>
+
+                     <field name="barcode"/>
+                     <field name="name"/>
+                     <field name="description"/>
+                     <field name="usage_type"/>
+                     <field name="sale_price"/>
+                     <field name="quantity_available"/>
+
+                 </tree> -->
+                <xpath expr="//field[@name='default_code']" position="after">
+                    <field name="usage_type"/>
+                </xpath>
+                <xpath expr="//field[@name='standard_price']" position="after">
+                    <field name="scientific_name"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="os21_pharmacy.medicines_form_view2">
+            <field name="name">os21_pharmacy list</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+
+                <!-- <form>
+                    <group>
+                        <field name="barcode"/>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="usage_type"/>
+                        <field name="sale_price"/>
+                        <field name="quantity_available"/>
+                    </group>
+                </form> -->
+
+
+         <xpath expr="//field[@name='default_code']" position="after">
+          <field name="usage_type"/>
+           <field name="scientific_name"/>
+        </xpath>
+
+
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+
+      <!-- <record model="ir.actions.act_window" id="os21_pharmacy.medicines_action_window">
+            <field name="name">pharmacy window</field>
+            <field name="res_model">iti42.pharmacy.medicine</field>
+            <field name="view_mode">tree,form</field>
+        </record> -->
+
+
+        <!-- server action to the one above -->
+
+       <!--     <record model="ir.actions.server" id="os21_pharmacy.action_server">
+              <field name="name">os21_pharmacy server</field>
+              <field name="model_id" ref="model_os21_pharmacy_os21_pharmacy"/>
+              <field name="state">code</field>
+              <field name="code">
+                action = {
+                  "type": "ir.actions.act_window",
+                  "view_mode": "tree,form",
+                  "res_model": model._name,
+                }
+              </field>
+            </record> -->
+
+
+        <!-- Top menu item -->
+
+        <menuitem name="pharmacy" id="os21_pharmacy.menu_pharmacy"/>
+
+        <!-- menu categories -->
+
+        <menuitem name="Medicines" id="os21_pharmacy.medicine" parent="os21_pharmacy.menu_pharmacy"/>
+
+        <!-- actions -->
+
+       <!-- <menuitem name="Medicines" id="os21_pharmacy.menu_medicine_action" parent="os21_pharmacy.medicine" sequence="10"
+                  action="os21_pharmacy.medicines_action_window"/> -->
+
+
+    </data>
+</odoo>

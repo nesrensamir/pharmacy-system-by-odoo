@@ -1,0 +1,52 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="os21_pharmacy.moves_list_view">
+            <field name="name">medicine_moves_view_tree</field>
+            <field name="model">iti42.pharmacy.moves</field>
+            <field name="arch" type="xml">
+                <tree string="Moves">
+
+                    <field name="name"/>
+                    <field name="quantity"/>
+                    <field name="timestamp"/>
+                    <field name="medicine"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="os21_pharmacy.moves_form_view">
+            <field name="name">medicine_moves_view_form</field>
+            <field name="model">iti42.pharmacy.moves</field>
+            <field name="arch" type="xml">
+                <form string="Moves">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="quantity"/>
+                            <field name="timestamp"/>
+                            <field name="medicine"/>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+       <record id="medicine_moves_action_window" model="ir.actions.act_window">
+        <field name="name">Moves</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">iti42.pharmacy.moves</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="medicine_moves_action_menu" name="Moves"
+              parent="os21_pharmacy.medicine"
+              action="medicine_moves_action_window" sequence="20"/>
+
+
+    </data>
+</odoo>

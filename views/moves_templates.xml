@@ -1,0 +1,36 @@
+<odoo>
+  <data>
+
+    <record id="pharmacy_moves_report" model="ir.actions.report">
+      <field name="name">Moves</field>
+      <field name="model">iti42.pharmacy.moves</field>
+      <field name="report_type">qweb-pdf</field>
+      <field name="report_name">os21_pharmacy.report_moves_template</field>
+      <field name="report_file">report_moves_template</field>
+      <field name="binding_model_id" ref="model_iti42_pharmacy_moves"/>
+      <field name="binding_type">report</field>
+    </record>
+
+
+    <template id="os21_pharmacy.report_moves_template">
+      <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="doc">
+          <t t-call="web.external_layout">
+
+
+            <div class="page">
+              <h2 t-field="doc.name"/>
+              <span t-field="doc.quantity"/>
+              <span t-field="doc.timestamp"/>
+              <span t-field="doc.medicine.name"/>
+
+            </div>
+
+
+          </t>
+        </t>
+      </t>
+    </template>
+
+  </data>
+</odoo>

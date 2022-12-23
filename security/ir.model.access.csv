@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_os21_pharmacy_os21_medicine,os21_pharmacy.os21_medicine,model_iti42_pharmacy_moves,base.group_user,1,1,1,1
